@@ -1,0 +1,29 @@
+#!/bin/sh
+#|-*- mode:lisp -*-|#
+#|
+exec ros -Q -- $0 "$@"
+|#
+
+#|
+ This file is a part of mise-en-place
+ (c) 2023 Chu the Pup https://dogboner.xyz (chufilthymutt@gmail.com)
+ Author: Chu the Pup <chufilthymutt@gmail.com>
+|#
+
+;; Use `+Q`  if you don't have Quicklisp dependencies to save startup time.
+
+(defun help ()
+  (format T "~&Usage:
+
+  mise-en-place [name]
+"))
+
+;; XXX: this load does not load from everywhere
+;; It doesn't work when run as a script.
+(load (truename "mise-en-place.asd"))
+(ql:quickload "mise-en-place")
+
+(defun main (&rest argv)
+  "Optional name parameter."
+  ;; CLI args parsing is done in %main.
+  (mise-en-place::%main argv))
