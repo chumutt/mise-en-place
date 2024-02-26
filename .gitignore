@@ -39,4 +39,4 @@ tramp
 .cask/
 
 # binary
-/mise-en-place
+./mise-en-place
