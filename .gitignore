@@ -37,6 +37,3 @@ tramp
 
 # cask packages
 .cask/
-
-# binary
-./mise-en-place
